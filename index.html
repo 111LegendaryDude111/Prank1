@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Пранкерский сайт</title>
+    <style>
+    body {
+      background: -webkit-linear-gradient(90deg, #9f2ef4,#f97d64,#ffcd42);background: linear-gradient(90deg, #9f2ef4,#f97d64,#ffcd42);
+    }
+  div {
+  position:static;
+    width:100%;
+    top:5%;
+    text-align:center;
+    font-size: 5em;
+    margin-top: 10%;
+}
+
+  .btn-success { 
+  background-color: rgb(231, 154, 212);
+  font-size: 1em;
+  } 
+
+  .btn-success:hover {
+ transition: 0.5s;
+ font-size: 2em;
+  }
+
+    </style>
+</head>
+<body>
+    <div> <h1>Hello mate,love u!</h1>
+    <button id="btn-play" class="btn btn-success">
+        click here!
+    </button>
+  </div>
+
+   <script>
+    var el = document.getElementById('btn-play');
+var playing = false; // текущее состояние плеера
+
+var player = new Audio("./scrim.mp3");
+player.preload = "auto";
+player.addEventListener('ended', function(){ // слушаем окончание трека
+  el.innerText = "Done";
+  playing = false;
+});
+el.addEventListener('click', playPause); // слушаем нажатие на кнопку
+
+function playPause() {
+  if( playing) {
+    player.pause();
+    el.innerText = "Paused";
+  } else {
+    player.play();
+    el.innerText = "Playing..";
+  }
+  playing = !playing;
+}
+    </script>
+</body>
+</html>
